@@ -112,14 +112,7 @@ export class FilmsEditChildComponent implements OnChanges {
       'AFI 1998': this.poradieVRebricku.get('afi1998Control')!.value,
       'AFI 2007': this.poradieVRebricku.get('afi2007Control')!.value
     };
-    this.filmsService.saveFilm(this.film).subscribe(
-      response => {
-        console.log('Film saved successfully:', response);
-      },
-      error => {
-        console.error('Error saving film:', error);
-      }
-    );
+    this.filmsService.saveFilm(this.film).subscribe(() => this.filmChange.emit(this.film));
   }
 
   get nazov(): FormControl<string> {
