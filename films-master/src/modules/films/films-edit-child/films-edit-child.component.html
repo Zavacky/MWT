@@ -1,0 +1,48 @@
+<h2>
+  @if(filmId) {
+    Editing Film {{film.nazov}} with id {{filmId}}
+  } @else {
+    Insert new film
+  }
+</h2>
+<form (ngSubmit)="submit()" [formGroup]="editForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Názov</mat-label>
+    <input matInput formControlName="nazov" required>
+    <mat-error *ngIf="nazov.invalid && (nazov.dirty || nazov.touched)">
+      Názov je povinný.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Rok</mat-label>
+    <input matInput formControlName="rok" required type="number">
+    <mat-error *ngIf="rok.invalid && (rok.dirty || rok.touched)">
+      Rok je povinný.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Slovenský Názov</mat-label>
+    <input matInput formControlName="slovenskyNazov">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>IMDB ID</mat-label>
+    <input matInput formControlName="imdbID" required>
+    <mat-error *ngIf="imdbID.invalid && (imdbID.dirty || imdbID.touched)">
+      IMDB ID je povinný.
+    </mat-error>
+  </mat-form-field>
+  <div formGroupName="poradieVRebricku">
+    <mat-form-field>
+      <mat-label>AFI 1998</mat-label>
+      <input matInput placeholder="AFI 1998 Rank" formControlName="afi1998Control">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>AFI 2007</mat-label>
+      <input matInput placeholder="AFI 2007 Rank" formControlName="afi2007Control">
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">Uložiť</button>
+</form>

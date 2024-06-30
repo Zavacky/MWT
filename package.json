@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@angular/core": "^17.3.6",
+    "lodash": "^4.17.21",
+    "node": "^22.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^20.12.7",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.4.5"
+  }
+}
